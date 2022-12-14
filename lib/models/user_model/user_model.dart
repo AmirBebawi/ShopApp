@@ -1,6 +1,6 @@
 class UserModel {
   late bool status;
-   String ? message ;
+    String?  message ;
   late DataModel data;
 
   UserModel.fromJson(Map<String, dynamic> json) {

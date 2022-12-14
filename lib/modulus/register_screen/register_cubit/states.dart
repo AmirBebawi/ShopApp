@@ -1,6 +1,7 @@
 
 
-import '../../../models/register_model/register_model.dart';
+import 'package:shopapp/models/login_model/login_model.dart';
+
 
 abstract class RegisterStates {}
 
@@ -9,9 +10,9 @@ class RegisterInitialState extends RegisterStates {}
 class RegisterLoadingState extends RegisterStates {}
 
 class RegisterSuccessState extends RegisterStates {
-  final RegisterModel registerModel;
+  final LoginModel loginModel;
 
-  RegisterSuccessState(this.registerModel);
+  RegisterSuccessState(this.loginModel);
 }
 
 class RegisterErrorState extends RegisterStates {

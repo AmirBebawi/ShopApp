@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shopapp/models/register_model/register_model.dart';
+import 'package:shopapp/models/login_model/login_model.dart';
 import 'package:shopapp/modulus/register_screen/register_cubit/states.dart';
 import 'package:shopapp/shared/network/end_points/end_point.dart';
 import 'package:shopapp/shared/network/remote/dio_helper.dart';
@@ -14,7 +14,7 @@ class RegisterCubit extends Cubit<RegisterStates> {
     isPassword = !isPassword;
     emit(RegisterPasswordVisibilityState());
   }
-   RegisterModel? registerModel ;
+   LoginModel? loginModel ;
   void userRegister(
   {
   required String name ,
@@ -31,8 +31,8 @@ class RegisterCubit extends Cubit<RegisterStates> {
       'phone':phone ,
       'password':password ,
     }).then((value){
-      registerModel = RegisterModel.fromJson(value.data);
-      emit(RegisterSuccessState(registerModel!));
+      loginModel = LoginModel.fromJson(value.data);
+      emit(RegisterSuccessState(loginModel!));
     }).catchError((error){
       emit(RegisterErrorState(error.toString()));
     });

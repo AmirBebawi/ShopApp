@@ -28,22 +28,22 @@ class RegisterScreen extends StatelessWidget {
       child: BlocConsumer<RegisterCubit, RegisterStates>(
         listener: (context, state) {
           if (state is RegisterSuccessState) {
-            if (state.registerModel.status!) {
+            if (state.loginModel.status!) {
               CacheHelper.saveData(
-                      key: 'token', value: state.registerModel.data!.token)
+                      key: 'token', value: state.loginModel.data!.token)
                   .then((value) {
-                token = state.registerModel.data!.token;
+                token = state.loginModel.data!.token;
                 navigateAndFinish(
                   context,
                   const ShopLayout(),
                 );
                 showToast(
-                    text: state.registerModel.message,
+                    text: state.loginModel.message,
                     state: ToastStates.success);
               });
             } else {
               showToast(
-                text: state.registerModel.message,
+                text: state.loginModel.message,
                 state: ToastStates.error,
               );
             }
